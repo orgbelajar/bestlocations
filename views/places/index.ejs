@@ -1,0 +1,11 @@
+<% layout('layouts/app') %>
+
+<h1>All Places</h1>
+<a href="/places/create">Add Place</a>
+<ul>
+  <!-- places is taken from res.render(‘places/index’, { places }); in app.js -->
+  <% for(const place of places) { %>
+  <!-- point to places/show.ejs along with its id  -->
+  <li><a href="/places/<%= place._id %>"> <%= place.title %> </a></li>
+  <% } %>
+</ul>

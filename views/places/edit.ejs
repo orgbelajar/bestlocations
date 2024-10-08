@@ -1,0 +1,37 @@
+<% layout('layouts/app') %>
+
+<h1>Edit Place</h1>
+<!-- place._id didapatkan dari method render { place } -->
+<!-- menambahkan query param _method=PUT -->
+<form action="/places/<%= place._id %>?_method=PUT" method="POST">
+  <!-- to collect each label and input -->
+  <div>
+    <label for="title">Title</label>
+    <!-- menambahkan value sebagai current data yg ada dalam db -->
+    <input
+      type="text"
+      name="place[title]"
+      id="title"
+      value="<%= place.title %>"
+    />
+  </div>
+  <div>
+    <label for="location">Location</label>
+    <input
+      type="text"
+      name="place[location]"
+      id="location"
+      value="<%= place.location %>"
+    />
+  </div>
+  <div>
+    <label for="price">Price</label>
+    <input
+      type="text"
+      name="place[price]"
+      id="price"
+      value="<%= place.price %>"
+    />
+  </div>
+  <button type="submit">Save</button>
+</form>
